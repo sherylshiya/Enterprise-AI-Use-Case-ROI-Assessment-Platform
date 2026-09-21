@@ -1,0 +1,50 @@
+[{
+  "process_name": "Invoice Processing",
+  "industry": "Telecommunications",
+  "description": "Manually validate pricing on incoming invoices",
+  "monthly_volume": 10000,
+  "processing_time_minutes": 10,
+  "employees": 5,
+  "hourly_labor_cost": 25,
+  "error_rate": 0.05,
+  "data_availability": "high",
+  "data_quality": "medium",
+  "data_type": ["PDF", "structured"],
+  "accuracy_requirement": "high",
+  "decision_criticality": "medium",
+  "current_automation": 0.2
+}
+,
+{
+    "process_name": "Resume Screening",
+    "industry": "Recruitment",
+    "description": "Manually review and screen incoming resumes against job requirements before shortlisting candidates",
+    "monthly_volume": 5000,
+    "processing_time_minutes": 12,
+    "employees": 4,
+    "hourly_labor_cost": 30,
+    "error_rate": 0.08,
+    "data_availability": "high",
+    "data_quality": "medium",
+    "data_type": ["PDF", "DOCX", "unstructured_text"],
+    "accuracy_requirement": "high",
+    "decision_criticality": "high",
+    "current_automation": 0.1
+  },
+  {
+    "process_name": "Customer Support",
+    "industry": "SaaS",
+    "description": "Handle customer support requests, classify issues, search knowledge bases, and provide responses to customers",
+    "monthly_volume": 20000,
+    "processing_time_minutes": 8,
+    "employees": 15,
+    "hourly_labor_cost": 25,
+    "error_rate": 0.06,
+    "data_availability": "high",
+    "data_quality": "high",
+    "data_type": ["email", "chat", "knowledge_base", "structured_data"],
+    "accuracy_requirement": "high",
+    "decision_criticality": "medium",
+    "current_automation": 0.25
+  }
+]
