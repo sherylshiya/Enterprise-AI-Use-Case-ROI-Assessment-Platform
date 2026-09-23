@@ -30,7 +30,7 @@ def score_repetitiveness(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 80,
         "very_high": 100,
     }
@@ -62,7 +62,7 @@ def score_rule_based_nature(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 80,
         "very_high": 100,
     }
@@ -76,7 +76,7 @@ def score_data_availability(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 90,
         "very_high": 100,
     }
@@ -92,7 +92,7 @@ def score_human_effort(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 80,
         "very_high": 100,
     }
@@ -108,7 +108,7 @@ def score_decision_complexity(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 80,
         "very_high": 100,
     }
@@ -123,7 +123,7 @@ def score_ai_feasibility(level: str) -> float:
     """
     scores = {
         "low": 20,
-        "medium": 60,
+        "medium": 50,
         "high": 80,
         "very_high": 100,
     }
@@ -150,14 +150,14 @@ def calculate_ai_readiness(
 
     Weights:
         Data Availability: 35%
-        Decision Complexity: 25%
-        AI Feasibility: 40%
+        Decision Complexity: 30%
+        AI Feasibility: 35%
     """
 
     score = (
         data_availability * 0.35
-        + decision_complexity * 0.25
-        + ai_feasibility * 0.40
+        + decision_complexity * 0.30
+        + ai_feasibility * 0.35
     )
 
     return round(score, 2)
@@ -207,9 +207,9 @@ def calculate_opportunity_score(
     risk: float,
 ) -> float:
     score = (
-        ai_readiness * 0.30
+        ai_readiness * 0.25
         + automation_readiness * 0.25
-        + business_impact * 0.30
+        + business_impact * 0.35
         - risk * 0.15
     )
 
@@ -233,6 +233,106 @@ def classify_score(score: float) -> str:
         return "Very High"
 
 
+def score_financial_impact(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def score_time_savings(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def score_strategic_importance(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def calculate_business_impact(
+    financial_impact: float,
+    time_savings: float,
+    volume: float,
+    strategic_importance: float,
+) -> float:
+
+    score = (
+        financial_impact * 0.30
+        + time_savings * 0.25
+        + volume * 0.20
+        + strategic_importance * 0.25
+    )
+
+    return round(score, 2)
+
+def score_decision_criticality(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def score_accuracy_requirement(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def score_compliance_sensitivity(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+
+def score_human_oversight(level: str) -> float:
+    scores = {
+        "low": 20,
+        "medium": 60,
+        "high": 80,
+        "very_high": 100,
+    }
+    return scores.get(level.lower(), 0)
+
+def calculate_risk(
+    decision_criticality: float,
+    accuracy_requirement: float,
+    compliance_sensitivity: float,
+    human_oversight: float,
+) -> float:
+
+    score = (
+        decision_criticality * 0.30
+        + accuracy_requirement * 0.25
+        + compliance_sensitivity * 0.25
+        + human_oversight * 0.20
+    )
+
+    return round(score, 2)
 # ============================================================
 # FULL ASSESSMENT
 # ============================================================
@@ -343,103 +443,3 @@ def assess_process(process: dict) -> dict:
         "overall_opportunity_score": opportunity_score,
         "classification": classify_score(opportunity_score),
     }
-def score_financial_impact(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def score_time_savings(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def score_strategic_importance(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def calculate_business_impact(
-    financial_impact: float,
-    time_savings: float,
-    volume: float,
-    strategic_importance: float,
-) -> float:
-
-    score = (
-        financial_impact * 0.30
-        + time_savings * 0.25
-        + volume * 0.20
-        + strategic_importance * 0.25
-    )
-
-    return round(score, 2)
-
-def score_decision_criticality(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def score_accuracy_requirement(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def score_compliance_sensitivity(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-
-def score_human_oversight(level: str) -> float:
-    scores = {
-        "low": 20,
-        "medium": 60,
-        "high": 80,
-        "very_high": 100,
-    }
-    return scores.get(level.lower(), 0)
-
-def calculate_risk(
-    decision_criticality: float,
-    accuracy_requirement: float,
-    compliance_sensitivity: float,
-    human_oversight: float,
-) -> float:
-
-    score = (
-        decision_criticality * 0.30
-        + accuracy_requirement * 0.25
-        + compliance_sensitivity * 0.25
-        + human_oversight * 0.20
-    )
-
-    return round(score, 2)

@@ -26,7 +26,7 @@ def test_ai_readiness():
         ai_feasibility=100,
     )
 
-    assert score == 91.5
+    assert score == 90.5
 
 
 def test_automation_readiness():
@@ -48,7 +48,7 @@ def test_opportunity_score():
         risk=75,
     )
 
-    assert score == 62.5
+    assert score == 53.83
 
 
 def test_classification():
@@ -115,4 +115,4 @@ def test_opportunity_score_with_risk():
         risk=60,
     )
 
-    assert score == 63.5
+    assert score == 56.25
