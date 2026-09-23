@@ -1,0 +1,6 @@
+#!/Users/sheryldekshanya/EAI_PLATFORM/Enterprise-AI-Use-Case-ROI-Assessment-Platform/.venv/bin/python
+import sys
+from pygments.cmdline import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())
