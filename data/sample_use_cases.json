@@ -23,7 +23,9 @@
     "human_oversight": "high",
     "data_quality": "medium",
     "data_type": ["PDF", "structured"],
-    "current_automation": 0.2
+    "current_automation": 0.2,
+    "monthly_operating_cost": 2000,
+    "implementation_cost": 30000
   },
   {
   "process_name": "Resume Screening",
@@ -50,6 +52,8 @@
   "accuracy_requirement": "high",
   "compliance_sensitivity": "medium",
   "human_oversight": "high",
+  "monthly_operating_cost": 1500,
+  "implementation_cost": 25000,
 
   "data_quality": "medium",
   "data_type": [
@@ -83,6 +87,8 @@
     "human_oversight": "high",
     "data_quality": "high",
     "data_type": ["email", "chat", "knowledge_base", "structured_data"],
-    "current_automation": 0.25
+    "current_automation": 0.25,
+    "monthly_operating_cost": 3000,
+    "implementation_cost": 40000
   }
 ]

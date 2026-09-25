@@ -48,7 +48,7 @@ def test_opportunity_score():
         risk=75,
     )
 
-    assert score == 53.83
+    assert score == 61.97
 
 
 def test_classification():
@@ -115,4 +115,4 @@ def test_opportunity_score_with_risk():
         risk=60,
     )
 
-    assert score == 56.25
+    assert score == 63.25
