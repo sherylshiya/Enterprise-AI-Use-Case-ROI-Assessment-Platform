@@ -4,10 +4,15 @@ from src.economics.cost import (
     calculate_total_first_year_cost,
 )
 
-from src.economics.roi import calculate_economics
+from src.economics.roi import calculate_economics, calculate_roi_sensitivity
 from src.economics.roi import (
     calculate_roi,
     calculate_payback_period,
+)
+from src.economics.roi import (
+    calculate_roi,
+    calculate_payback_period,
+    calculate_scenario_roi,
 )
 
 def test_current_annual_cost():
@@ -97,3 +102,35 @@ def test_economics_assessment():
     assert result["net_benefit"] == 446000
     assert result["roi_percent"] == 1486.67
     assert result["payback_period_months"] == 0.76
+
+
+def test_scenario_roi():
+
+    result = calculate_scenario_roi(
+        annual_savings=360_000,
+        annual_operating_cost=24_000,
+        implementation_cost=30_000,
+    )
+
+    assert result["realized_annual_benefit"] == 336_000
+    assert result["net_benefit"] == 306_000
+    assert result["roi_percent"] == 1020.0
+    assert result["payback_period_months"] == 1.07
+
+
+def test_roi_sensitivity():
+
+    result = calculate_roi_sensitivity(
+        current_annual_cost=500_000,
+        annual_operating_cost=24_000,
+        implementation_cost=30_000,
+        savings_rates=[30.0, 50.0, 70.0],
+    )
+
+    assert result[30.0]["annual_savings"] == 150_000
+    assert result[50.0]["annual_savings"] == 250_000
+    assert result[70.0]["annual_savings"] == 350_000
+
+    assert result[30.0]["roi_percent"] == 320.0
+    assert result[50.0]["roi_percent"] == 653.33
+    assert result[70.0]["roi_percent"] == 986.67
