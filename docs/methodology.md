@@ -64,34 +64,45 @@ Each factor is normalized to 0–100.
 
 ---
 
-# 4. Automation Potential
-
-Automation Potential estimates the percentage of process activity that could potentially be automated.
-
-The assessment considers:
-
-* Repetitive tasks
-* Rule-based decisions
-* Structured inputs
-* Document processing
-* Classification
-* Data extraction
-* Search/retrieval
-* Human judgment requirements
-* Exception frequency
-
-### Interpretation
-
-|  Score | Classification |
-| -----: | -------------- |
-|   0–29 | Low            |
-|  30–59 | Medium         |
-|  60–79 | High           |
-| 80–100 | Very High      |
-
-Automation Potential is an estimate and should not be interpreted as guaranteed labor reduction.
 
 ---
+
+### 4. Replace the ROI Framework's savings section
+
+The current document says:
+
+> `Monthly Savings = Current Process Cost − AI Process Cost` :contentReference[oaicite:3]{index=3}
+
+That's not what our current Day 5 model does.
+
+Add this after the current-cost calculation:
+
+```md
+### Automation Potential vs. Financial Savings
+
+Automation Potential and financial savings are treated as separate concepts.
+
+Automation Potential estimates how much of the process could potentially be
+automated based on process characteristics.
+
+Financial savings are modeled using explicit planning assumptions rather than
+using Automation Potential as a direct prediction of labor-cost reduction.
+
+### Savings Planning Assumptions
+
+The current scenario model uses:
+
+| Scenario | Savings Rate |
+|----------|-------------:|
+| Conservative | 30% |
+| Expected | 50% |
+| Optimistic | 70% |
+
+Illustrative Labor Savings:
+
+```text
+Illustrative Labor Savings =
+    Current Annual Labor Cost × Savings Rate
 
 # 5. AI Applicability
 
@@ -254,7 +265,18 @@ Human Dependency should be determined based on:
 
 # 11. Overall Opportunity Score
 
-The initial opportunity score combines business value, AI applicability and feasibility while accounting for risk and complexity.
+The overall opportunity score combines AI readiness, automation readiness,
+business impact, and risk.
+
+### Formula
+
+```text
+Overall Opportunity Score =
+    AI Readiness × 0.25
+    + Automation Readiness × 0.25
+    + Business Impact × 0.35
+    − Risk × 0.15
+
 
 ### V1 Formula
 
@@ -569,3 +591,22 @@ Implementation Roadmap
 
 
 
+### ROI Sensitivity Analysis
+
+The platform evaluates ROI across a wider range of savings assumptions:
+
+10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, and 90%.
+
+The purpose is to show how sensitive the financial case is to savings
+realization assumptions.
+
+```text
+Savings Assumption
+        ↓
+Illustrative Labor Savings
+        ↓
+Realized Annual Benefit
+        ↓
+Net Benefit
+        ↓
+ROI + Payback Period
